@@ -1,0 +1,16 @@
+{
+  "name": "speed-compare",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.19.3",
+    "ramda": "^0.25.0"
+  }
+}
