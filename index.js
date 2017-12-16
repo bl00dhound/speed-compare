@@ -1,18 +1,18 @@
-const { map, times, forEach } = require('ramda')
-const moment = require('moment')
+const { times, forEach } = require('ramda')
+const lo = require('lodash')
 
-const randomArray = times(() => Math.floor(Math.random()*1000000), 10000000)
+const randomArray = times(() => Math.floor(Math.random() * 1000000), 10000000)
 const length = randomArray.length
 const forArrayAsc = []
 console.time('Native for asc')
-for (let i = 0; i < length; i += 1) {
+for (let i = 0; i < length; i++) {
     forArrayAsc.push(randomArray[i]) 
 }
 console.timeEnd('Native for asc')
 
 const forArrayDesc = []
 console.time('Native for desc')
-for (let i = length; i >= 0; i -= 1) {
+for (let i = length; i >= 0; i--) {
     forArrayDesc.push(randomArray[i]) 
 }
 console.timeEnd('Native for desc')
@@ -24,6 +24,13 @@ while (index < length) {
     whileArray.push(randomArray[index++])
 }
 console.timeEnd('Native while')
+
+const lodashArray = []
+console.time('Lodash forEach')
+lo.forEach(randomArray, element => {
+    lodashArray.push(element/2)
+})
+console.timeEnd('Lodash forEach')
 
 const ramdaArray = []
 console.time('Ramda forEach')
